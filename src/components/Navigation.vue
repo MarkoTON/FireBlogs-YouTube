@@ -61,7 +61,7 @@ import menuIcon from "../assets/Icons/bars-regular.svg";
 import userIcon from "../assets/Icons/user-alt-light.svg";
 import adminIcon from "../assets/Icons/user-crown-light.svg";
 import signOutIcon from "../assets/Icons/sign-out-alt-regular.svg";
-import firebase from "firebase/app";
+// import firebase from "firebase/app";
 import "firebase/auth";
 
 export default {
@@ -80,13 +80,27 @@ export default {
       windownWidth: null,
     };
   },
-  created() {},
+  created() {
+    window.addEventListener('resize', this.checkScreen);
+    this.checkScreen();
+  },
   methods: {
-    checkScreen() {},
+    checkScreen() {
+      this.windownWidth = window.innerWidth;
+      if(this.windownWidth <= 750){
+        this.mobile = true
+        return
+      }
+      this.mobile = false
+      this.mobileNav = false
+      return
+    },
 
-    toggleMobileNav() {},
+    toggleMobileNav() {
+      this.mobileNav = !this.mobileNav
+    },
 
-    toggleProfileMenu(e) {},
+    // toggleProfileMenu(e) {},
 
     signOut() {},
   },
