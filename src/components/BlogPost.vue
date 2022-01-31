@@ -15,8 +15,8 @@
       </div>
     </div>
     <div class="blog-photo">
-      <img v-if="post.welcomeScreen" :src="require(`../assets/blogPhotos/${post.photo}.jpg`)" alt="" />
-      <img v-else :src="post.blogCoverPhoto" alt="" />
+      <img v-if="post.welcomeScreen" :src="require(`../assets/blogPhotos/${post.photo}.jpg`)" alt="Phote is not loaded" />
+      <img v-else :src="require(`../assets/blogPhotos/${post.blogCoverPhoto}.jpg`)" alt="${post.blogCoverPhoto}" />
     </div>
   </div>
 </template>
